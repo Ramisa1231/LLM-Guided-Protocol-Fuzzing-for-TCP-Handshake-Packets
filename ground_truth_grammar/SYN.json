@@ -1,0 +1,16 @@
+{
+  "TCP_SYN": {
+    "Source_Port": "<Value>",
+    "Destination_Port": "<Value>",
+    "Sequence_Number": "<Value>",
+    "Acknowledgment_Number": "00 00 00 00",
+    "Data_Offset": "<Value>",
+    "Reserved": "<Value>",
+    "Flags": "02",
+    "Window_Size": "<Value>",
+    "Checksum": "<Value>",
+    "Urgent_Pointer": "00 00",
+    "TCP_Options": "<Value>",
+    "Payload": "00"
+  }
+}
