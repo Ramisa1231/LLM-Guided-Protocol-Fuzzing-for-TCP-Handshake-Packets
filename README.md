@@ -31,7 +31,7 @@ The study is conducted by a single researcher and uses **real TCP traffic captur
 ├── task3/
 │
 └── README.md
-.
+
 ```
 ## 🔹 Task 1a — TCP Packet Grammar Inference
 
@@ -44,29 +44,21 @@ Create a folder called `ground_truth_grammar/` containing grammar definitions fo
 
 ```bash
 ground_truth_grammar/
+```
 
 Add three ground truth grammar files:
-
-🔹 Task 1a — TCP Packet Grammar Inference
-Goal
-Evaluate whether an LLM can infer structured TCP packet grammars for handshake packets.
-
-Setup
-Create the following directory:
-
-bash
-Copy code
-ground_truth_grammar/
-Add three ground truth grammar files:
-
-text
-Copy code
-ground_truth_grammar/
-├── SYN.json
-├── SYNACK.json
-└── ACK.json
+```text
+.
+├── ground_truth_grammar/
+│   ├── SYN.json
+│   ├── SYNACK.json
+│   └── ACK.json
+```
 Each JSON file defines the expected structure and fields of the corresponding TCP packet type.
 These grammars are used as ground truth for evaluating LLM-generated grammars.
+
+
+
 
 🔹 Task 1b — TCP Hex Dump Parsing
 Goal
