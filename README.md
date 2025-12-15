@@ -31,6 +31,10 @@ The study is conducted by a single researcher and uses **real TCP traffic captur
 ├── task3/
 │
 └── README.md
+
+
+```text
+
 🔹 Task 1a — TCP Packet Grammar Inference
 Goal
 Evaluate whether an LLM can infer structured TCP packet grammars for handshake packets.
