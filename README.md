@@ -94,7 +94,7 @@ This generates a real TCP handshake on localhost:12345.
 ##### 2️⃣ Extract column-wise TCP header fields
 ```cmd
 "C:\Program Files\Wireshark\tshark.exe" ^
--r "C:\Users\ramif\OneDrive\Desktop\SEMESTER 4\Mobile and Wireless\DATA2\handshake.pcap" ^
+-r "C:\pathto\handshake.pcap" ^
 -T fields ^
 -E separator=, ^
 -e frame.number ^
@@ -113,22 +113,22 @@ This generates a real TCP handshake on localhost:12345.
 -e tcp.payload ^
 > "C:\pathto\handshake_packets.txt"
 ```
-#####3️⃣ Extract raw TCP hex dump
+##### 3️⃣ Extract raw TCP hex dump
 ```cmd
 
 "C:\Program Files\Wireshark\tshark.exe" ^
--r "C:\Users\ramif\OneDrive\Desktop\SEMESTER 4\Mobile and Wireless\DATA2\handshake.pcap" ^
+-r "C:\pathto\handshake.pcap" ^
 -x ^
-> "C:\Users\ramif\OneDrive\Desktop\SEMESTER 4\Mobile and Wireless\DATA2\handshake_hex.txt"
+> "C:\pathto\handshake_hex.txt"
 ```
-#####4️⃣ Extract full ground truth (Wireshark-style)
+##### 4️⃣ Extract full ground truth (Wireshark-style)
 ```cmd
 
-"C:\pProgram Files\Wireshark\tshark.exe" ^
+"C:\Program Files\Wireshark\tshark.exe" ^
 -r "C:\pathto\handshake.pcap" ^
 > "C:\pathto\ground_truth.txt"
 ```
-####📂 Files Produced
+#### 📂 Files Produced
 ```text
 | File                    | Purpose                         |
 | ----------------------- | ------------------------------- |
@@ -140,8 +140,8 @@ This generates a real TCP handshake on localhost:12345.
 
 These files are converted into CSV format and reused in Tasks 1b, 2, and 3.
 
-##🔹 Task 2 — ACK Packet Generation from Mutated Inputs
-###Goal
+## 🔹 Task 2 — ACK Packet Generation from Mutated Inputs
+### Goal
 Evaluate whether LLMs can generate a valid ACK packet hex dump given:
 
 A mutated SYN packet
