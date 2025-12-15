@@ -60,37 +60,39 @@ These grammars are used as ground truth for evaluating LLM-generated grammars.
 
 
 
-🔹 Task 1b — TCP Hex Dump Parsing
-Goal
+##🔹 Task 1b — TCP Hex Dump Parsing
+### Goal
 Evaluate whether an LLM can parse raw TCP hex dumps and extract correct header fields and values.
 
 This task uses real TCP traffic captured locally.
 
-🔧 Step 1: Run TCP Server and Client
+### Setup
+#### 🔧 Step 1: Run TCP Server and Client
 Start the TCP server:
 
-bash
-Copy code
+```bash
 python tcp_server.py
+```
 Start the TCP client in a separate terminal:
-
-bash
-Copy code
+```bash
 python tcp_client.py
+```
+
 This generates a real TCP handshake on localhost:12345.
 
-🔧 Step 2: Capture Traffic Using tshark (Windows CMD)
-1️⃣ Capture packets to PCAP
-cmd
-Copy code
-"C:\pathto\tshark.exe" ^
+#### 🔧 Step 2: Capture Traffic Using tshark (Windows CMD)
+
+##### 1️⃣ Capture packets to PCAP
+```cmd
+
+"C:\Program Files\Wireshark\tshark.exe" ^
 -i 7 ^
 -a duration:30 ^
 -f "tcp port 12345" ^
 -w "C:\pathto\handshake.pcap"
-2️⃣ Extract column-wise TCP header fields
-cmd
-Copy code
+```
+##### 2️⃣ Extract column-wise TCP header fields
+```cmd
 "C:\Program Files\Wireshark\tshark.exe" ^
 -r "C:\Users\ramif\OneDrive\Desktop\SEMESTER 4\Mobile and Wireless\DATA2\handshake.pcap" ^
 -T fields ^
@@ -109,31 +111,37 @@ Copy code
 -e tcp.urgent_pointer ^
 -e tcp.options ^
 -e tcp.payload ^
-> "C:\Users\ramif\OneDrive\Desktop\SEMESTER 4\Mobile and Wireless\DATA2\handshake_packets.txt"
-3️⃣ Extract raw TCP hex dump
-cmd
-Copy code
+> "C:\pathto\handshake_packets.txt"
+```
+#####3️⃣ Extract raw TCP hex dump
+```cmd
+
 "C:\Program Files\Wireshark\tshark.exe" ^
 -r "C:\Users\ramif\OneDrive\Desktop\SEMESTER 4\Mobile and Wireless\DATA2\handshake.pcap" ^
 -x ^
 > "C:\Users\ramif\OneDrive\Desktop\SEMESTER 4\Mobile and Wireless\DATA2\handshake_hex.txt"
-4️⃣ Extract full ground truth (Wireshark-style)
-cmd
-Copy code
-"C:\pathto\tshark.exe" ^
--r "C:\Upathto\handshake.pcap" ^
+```
+#####4️⃣ Extract full ground truth (Wireshark-style)
+```cmd
+
+"C:\pProgram Files\Wireshark\tshark.exe" ^
+-r "C:\pathto\handshake.pcap" ^
 > "C:\pathto\ground_truth.txt"
-📂 Files Produced
-File	Purpose
-handshake.pcap	Raw packet capture
-handshake_packets.txt	Column-wise TCP header values
-handshake_hex.txt	Raw TCP hex dump
-ground_truth.txt	Human-readable TCP ground truth
+```
+####📂 Files Produced
+```text
+| File                    | Purpose                         |
+| ----------------------- | ------------------------------- |
+| `handshake.pcap`        | Raw packet capture              |
+| `handshake_packets.txt` | Column-wise TCP header values   |
+| `handshake_hex.txt`     | Raw TCP hex dump                |
+| `ground_truth.txt`      | Human-readable TCP ground truth |
+```
 
 These files are converted into CSV format and reused in Tasks 1b, 2, and 3.
 
-🔹 Task 2 — ACK Packet Generation from Mutated Inputs
-Goal
+##🔹 Task 2 — ACK Packet Generation from Mutated Inputs
+###Goal
 Evaluate whether LLMs can generate a valid ACK packet hex dump given:
 
 A mutated SYN packet
