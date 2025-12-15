@@ -144,48 +144,37 @@ These files are converted into CSV format and reused in Tasks 1b, 2, and 3.
 ### Goal
 Evaluate whether LLMs can generate a valid ACK packet hex dump given:
 
-A mutated SYN packet
+- A mutated SYN packet
+- A mutated SYN-ACK packet
 
-A mutated SYN-ACK packet
+### Evaluation Metrics
+- Valid packet type generation
+- Missing packet type rate
+- Hallucination rate
+- Relative packet position correctness
 
-Evaluation Metrics
-Valid packet type generation
-
-Missing packet type rate
-
-Hallucination rate
-
-Relative packet position correctness
-
-🔹 Task 3 — TCP State Transition Prediction
-Goal
+## 🔹 Task 3 — TCP State Transition Prediction
+### Goal
 Evaluate whether LLMs can infer stateful TCP behavior.
 
 Given:
 
-The current TCP state
-
-The current packet hex dump
+- The current TCP state
+- The current packet hex dump
 
 The LLM is asked to generate the next packet in the handshake.
 
-Outcomes
-Successful state transition
+### Outcomes
+- Successful state transition
+- Partial state transition
+- Unsuccessful state transition
+- Hallucination
 
-Partial state transition
-
-Unsuccessful state transition
-
-Hallucination
-
-🧪 Models Evaluated
-GPT-3.5-Turbo
-
-GPT-4.1
+## 🧪 Models Evaluated
+- GPT-3.5-Turbo
+- GPT-4.1
 
 Each task is evaluated using:
-
-Baseline prompting
-
-One-shot + Chain-of-Thought prompting
+- Baseline prompting
+- One-shot + Chain-of-Thought prompting
 
