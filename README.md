@@ -1,6 +1,6 @@
 # LLM-Guided-Protocol-Fuzzing-for-TCP-Handshake-Packets
 evaluates whether large language models can understand and fuzz TCP handshakes. The project studies grammar inference, hex dump parsing, packet generation under mutation, and state-aware next-packet prediction using real Wireshark TCP traffic
-# LLM4TCP — TCP Handshake Understanding and Fuzzing with LLMs
+
 
 This project evaluates whether Large Language Models (LLMs) can understand, parse, generate, and reason about **TCP handshake packets** for protocol fuzzing and state inference.  
 The study is conducted by a single researcher and uses **real TCP traffic captured via Wireshark**.
@@ -33,7 +33,19 @@ The study is conducted by a single researcher and uses **real TCP traffic captur
 └── README.md
 
 
-```text
+## 🔹 Task 1a — TCP Packet Grammar Inference
+
+### Goal
+Evaluate whether an LLM can infer structured TCP packet grammars for handshake packets.
+
+### Setup
+Create a folder called `ground_truth_grammar/` containing grammar definitions for
+`SYN.json`, `SYNACK.json`, and `ACK.json`.
+
+```bash
+ground_truth_grammar/
+
+Add three ground truth grammar files:
 
 🔹 Task 1a — TCP Packet Grammar Inference
 Goal
