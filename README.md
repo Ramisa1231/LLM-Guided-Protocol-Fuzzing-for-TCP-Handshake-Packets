@@ -60,7 +60,7 @@ These grammars are used as ground truth for evaluating LLM-generated grammars.
 
 
 
-##🔹 Task 1b — TCP Hex Dump Parsing
+## 🔹 Task 1b — TCP Hex Dump Parsing
 ### Goal
 Evaluate whether an LLM can parse raw TCP hex dumps and extract correct header fields and values.
 
