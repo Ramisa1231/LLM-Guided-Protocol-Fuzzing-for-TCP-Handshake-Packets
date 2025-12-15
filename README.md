@@ -32,7 +32,7 @@ The study is conducted by a single researcher and uses **real TCP traffic captur
 │
 └── README.md
 .
-
+```
 ## 🔹 Task 1a — TCP Packet Grammar Inference
 
 ### Goal
